@@ -1,0 +1,9 @@
+'use strict';
+const path = require('path');
+
+module.exports = {
+    config: path.join(__dirname, 'database/config.json'),
+    'migrations-path': path.join(__dirname, 'database/migrations'), // 用来控制数据库迁移的文件夹，需要修改表结构的时候，可以通过代码来控制数据库表结构的版本回退
+    'seeders-path': path.join(__dirname, 'database/seeders'), // 是存放如何生成假数据的文件夹
+    'models-path': path.join(__dirname, 'app/model'), // 是表中字段硬度和到JS对象中的逻辑，在controller中和service中可通过this.app.model或者this.ctx.model访问
+}
