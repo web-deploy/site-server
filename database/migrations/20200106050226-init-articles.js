@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  // 在执行数据库升级时调用的函数，创建 books 表
+  // 在执行数据库升级时调用的函数，创建 articles 表
   up: (queryInterface, Sequelize) => {
     const {
       INTEGER,
@@ -22,17 +22,40 @@ module.exports = {
         allowNull: false,
         type: INTEGER,
       },
+      articleid: {
+        type: INTEGER,
+        allowNull: false,
+      },
       title: {
         type: STRING(64),
         allowNull: false,
+      },
+      content: {
+        type: STRING(1000),
+        defaultValue: '',
       },
       description: {
         type: STRING(500),
         allowNull: true,
       },
-      poster: STRING(100),
+      poster: {
+        type: STRING(200),
+        allowNull: false,
+        defaultValue: '',
+      },
       status: INTEGER,
-      like: INTEGER,
+      tags: {
+        type: STRING(20),
+        allowNull: false,
+      },
+      category: {
+        type: STRING(20),
+        allowNull: false,
+      },
+      view: {
+        type: INTEGER,
+        defaultValue: 0,
+      },
       created_at: {
         allowNull: false,
         type: DATE,
@@ -47,8 +70,7 @@ module.exports = {
       timestamps: false,
     });
   },
-  // 在执行数据库降级时调用的函数，删除 users 表
   down: async queryInterface => {
-    await queryInterface.dropTable('books');
+    await queryInterface.dropTable('articles');
   },
 };
