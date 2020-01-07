@@ -54,7 +54,7 @@ module.exports = app => {
       type: DATE,
     },
   }, {
-    timestamps: false,
+    timestamps: true,
   });
 
 

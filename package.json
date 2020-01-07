@@ -37,7 +37,9 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "sequelize:init": "npx sequelize migration:generate --name=init-articles",
+    "sequelize:db": "npx sequelize db:migrate"
   },
   "ci": {
     "version": "10"

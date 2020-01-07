@@ -67,7 +67,7 @@ module.exports = {
     }, {
       charset: 'utf8',
       paranoid: true,
-      timestamps: false,
+      timestamps: true,
     });
   },
   down: async queryInterface => {

@@ -14,7 +14,6 @@ class ArticlesService extends Service {
     const article = ctx.request.body;
     const id = ctx.helper.uuid(6, 8);
     article.articleid = id;
-    console.log(article);
     try {
       const { articleid } = await ctx.model.Article.create(article);
       return { articleid };
