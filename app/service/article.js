@@ -26,9 +26,8 @@ class ArticlesService extends Service {
   async show() {
     const { ctx } = this;
     const { id } = ctx.params;
-    const { article } = await ctx.model.Article.findOne({ where: { articleId: id } });
-    console.log(article);
-    return article;
+    const result = await ctx.model.Article.findOne({ where: { articleId: id } });
+    return result;
   }
 }
 

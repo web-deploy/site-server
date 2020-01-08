@@ -18,7 +18,7 @@ class ArticleController extends Controller {
   async show() {
     const { ctx } = this;
     const result = await ctx.service.article.show();
-    return result;
+    ctx.body = result;
   }
 }
 
