@@ -22,6 +22,14 @@ class ArticlesService extends Service {
       throw Error('保存错误');
     }
   }
+
+  async show() {
+    const { ctx } = this;
+    const { id } = ctx.params;
+    const { article } = await ctx.model.Article.findOne({ where: { articleId: id } });
+    console.log(article);
+    return article;
+  }
 }
 
 module.exports = ArticlesService;

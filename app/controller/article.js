@@ -14,6 +14,12 @@ class ArticleController extends Controller {
       data: result,
     };
   }
+
+  async show() {
+    const { ctx } = this;
+    const result = await ctx.service.article.show();
+    return result;
+  }
 }
 
 module.exports = ArticleController;
