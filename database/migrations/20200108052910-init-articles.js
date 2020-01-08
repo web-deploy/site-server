@@ -6,7 +6,6 @@ module.exports = {
     const {
       INTEGER,
       STRING,
-      DATE,
     } = Sequelize;
     /*
       Add altering commands here.
@@ -55,14 +54,6 @@ module.exports = {
       view: {
         type: INTEGER,
         defaultValue: 0,
-      },
-      created_at: {
-        allowNull: false,
-        type: DATE,
-      },
-      updated_at: {
-        allowNull: false,
-        type: DATE,
       },
     }, {
       charset: 'utf8',
