@@ -43,18 +43,16 @@ module.exports = app => {
       type: INTEGER,
       defaultValue: 0,
     },
-    created_at: {
+    createdAt: {
       allowNull: false,
-      defaultValue: new Date().getTime(),
+      defaultValue: new Date(),
       type: DATE,
     },
-    updated_at: {
+    updatedAt: {
       allowNull: false,
-      defaultValue: new Date().getTime(),
+      defaultValue: new Date(),
       type: DATE,
     },
-  }, {
-    timestamps: true,
   });
 
 

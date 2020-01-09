@@ -6,6 +6,8 @@ module.exports = {
     const {
       INTEGER,
       STRING,
+      TEXT,
+      DATE,
     } = Sequelize;
     /*
       Add altering commands here.
@@ -30,7 +32,7 @@ module.exports = {
         allowNull: false,
       },
       content: {
-        type: STRING(1000),
+        type: TEXT,
         defaultValue: '',
       },
       description: {
@@ -55,10 +57,19 @@ module.exports = {
         type: INTEGER,
         defaultValue: 0,
       },
+      created_at: {
+        type: DATE,
+        allowNull: false,
+        defaultValue: new Date(),
+      },
+      updated_at: {
+        type: DATE,
+        allowNull: false,
+        defaultValue: new Date(),
+      },
     }, {
       charset: 'utf8',
-      paranoid: true,
-      timestamps: true,
+      timestamps: false,
     });
   },
   down: async queryInterface => {
