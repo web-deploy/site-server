@@ -30,7 +30,10 @@ module.exports = app => {
       allowNull: false,
       defaultValue: '',
     },
-    status: INTEGER,
+    status: {
+      type: INTEGER,
+      defaultValue: 0,
+    },
     tags: {
       type: STRING(20),
       allowNull: false,

@@ -41,6 +41,39 @@ class ArticlesService extends Service {
     const result = await this.create();
     return result;
   }
+
+  async getAdminArticles() {
+    const { ctx } = this;
+    const articles = await ctx.model.Article.findAll();
+    return articles;
+  }
+
+  async destroy() {
+    const { ctx } = this;
+    const id = ctx.helper.toInt(ctx.params.id);
+    try {
+      const article = await ctx.model.Article.findByPk(id);
+
+      if (!article) {
+        return {
+          code: -1,
+          msg: '暂无此文章',
+        };
+      }
+
+
+      await article.update({ status: -1 });
+      // const result = await ctx.model.Article.update({
+      //   where: {
+      //     articleId,
+      //     status: -1,
+      //   },
+      // });
+      return article;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = ArticlesService;

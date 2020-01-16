@@ -14,4 +14,6 @@ module.exports = app => {
   // 上传
   router.get(`${PRE}/upload/getToken`, controller.upload.getToken);
   router.get(`${PRE}/upload/getImgUrl`, controller.upload.getImageUrl);
+
+  require('./router/admin')(app);
 };
