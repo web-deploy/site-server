@@ -63,16 +63,17 @@ class ArticlesService extends Service {
 
 
       await article.update({ status: -1 });
-      // const result = await ctx.model.Article.update({
-      //   where: {
-      //     articleId,
-      //     status: -1,
-      //   },
-      // });
       return article;
     } catch (error) {
       throw error;
     }
+  }
+
+  async showDetail() {
+    const { ctx } = this;
+    const id = ctx.helper.toInt(ctx.params.id);
+    const article = await ctx.model.Article.findByPk(id);
+    return article;
   }
 }
 
